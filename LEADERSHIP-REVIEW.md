@@ -1,7 +1,8 @@
 # LEADERSHIP-REVIEW.md
 
 ## Executive Summary
-[cite_start]This document provides a candid, production-readiness evaluation of the **FOODHUB™** takeaway SaaS system[cite: 2, 28]. [cite_start]The application code is minimal, focusing on a decoupled architecture designed to enforce server-side integrity against client-side manipulation[cite: 35, 38]. 
+This document provides a candid, production-readiness evaluation of the **FOODHUB™** takeaway SaaS system. 
+The application code is minimal, focusing on a decoupled architecture designed to enforce server-side integrity against client-side manipulation. 
 
 While the system is highly resilient against exploitation and prepared to withstand direct API stress-testing, it is structurally bounded by architectural limitations that render it **unsuitable for production deployment** without further controls.
 
@@ -11,8 +12,8 @@ While the system is highly resilient against exploitation and prepared to withst
 Our confidence levels are strictly tied to the defenses enforced by the live backend service layer, rather than interface-level promises.
 
 ### 🟢 High Confidence
-* [cite_start]**Menu Retrieval:** Zero unauthenticated exposure risks on read contracts[cite: 139]. [cite_start]The system serves sanitized menu definitions predictably[cite: 45].
-* [cite_start]**Order Validation:** Defeats attempts at payload manipulation[cite: 48]. [cite_start]The API strictly rejects malformed request shapes, invalid IDs, and unauthorized modifications before executing business logic[cite: 57, 121].
+* **Menu Retrieval:** Zero unauthenticated exposure risks on read contracts[cite: 139]. [cite_start]The system serves sanitized menu definitions predictably.
+* **Order Validation:** Defeats attempts at payload manipulation[cite: 48]. [cite_start]The API strictly rejects malformed request shapes, invalid IDs, and unauthorized modifications before executing business logic[cite: 57, 121].
 * [cite_start]**Total Calculation:** Completely secure against price-spoofing[cite: 20]. [cite_start]The server entirely ignores any price data transmitted by the client, deriving all calculations exclusively from its internal, server-side source of truth[cite: 56].
 
 ### 🟡 Moderate Confidence
