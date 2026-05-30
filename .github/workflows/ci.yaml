@@ -1,0 +1,45 @@
+name: CI Takeaway SaaS Defensive Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-and-test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository Source Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-node-version: 20
+        cache: 'npm'
+
+    - name: Install Project Dependencies
+      run: npm ci
+
+    - name: Install Playwright Browser Binaries
+      run: npx playwright install --with-deps chromium
+
+    - name: Build Next.js Production App Shell
+      run: npm run build
+
+    - name: Execute Playwright Adversarial E2E Verification Suites
+      run: npm run test:e2e
+      env:
+        # Sets the target location context for execution verification
+        NODE_ENV: test
+
+    - name: Archive Test Execution Artifact Reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-execution-report
+        path: playwright-report/
+        retention-days: 14
