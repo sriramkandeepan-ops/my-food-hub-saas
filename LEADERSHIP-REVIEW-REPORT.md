@@ -4,7 +4,7 @@
 This document provides a candid, production-readiness evaluation of the **FOODHUB™** takeaway SaaS system. 
 The application code is minimal, focusing on a decoupled architecture designed to enforce server-side integrity against client-side manipulation. 
 
-While the system is highly resilient against exploitation and prepared to withstand direct API stress-testing, it is structurally bounded by architectural limitations that render it **unsuitable for production deployment** without further controls.
+While the system is highly resilient against exploitation and prepared to withstand direct API stress-testing, it is structurally bounded by architectural limitations that render it **unsuitable for production deployment** without further controls detailed below.
 
 ---
 
