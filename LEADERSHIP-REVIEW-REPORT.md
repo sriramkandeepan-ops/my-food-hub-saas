@@ -99,7 +99,7 @@ We immediately fixed this gap by refactoring the codebase:
 
 ---
 
-## 4. Defensible Verification & Test Suite Matrix
+## 6. Defensible Verification & Test Suite Matrix
 
 The integrity of this application is defended by an automated, multi-layered verification framework. The system metrics published in our `README.md` and repository headers are completely synced with the real behaviors enforced in production:
 
@@ -108,6 +108,6 @@ The integrity of this application is defended by an automated, multi-layered ver
 
 ---
 
-## 5. Strategic Recommendation
+## 7. Strategic Recommendation
 * **Status:** **Suitable for assessment/demo use**.
 * **Action:** The codebase is optimized to withstand adversarial testing, client-side data manipulation, and explicit endpoint exploitation attempts by reviewers. However, due to structural risks regarding state retention and payment duplicate vulnerabilities, **the application is not suitable for production deployment without additional controls**.
